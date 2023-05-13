@@ -9,3 +9,6 @@
 - Display notifications for
 - unmatching passwords during sign up
 - incorrect password during sign in
+- web lok like...
+![Screenshot (10)](https://github.com/sdmohapatra7/NodeJs_Authentication/assets/121569281/4a3b07c1-e86a-4c30-a77b-bf9007e9eb7e)
+
