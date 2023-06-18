@@ -8,17 +8,11 @@ let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
     secure: true,
-    logger: true,
-    debug: true,
-    secureConnection: false,
 
     auth: {
         user: process.env.user_email,
         pass: process.env.user_pass
     },
-    tls: {
-        rejectUnAuthorized: true
-    }
 }
 );
 
@@ -26,7 +20,7 @@ let renderTemplate = (data, relativePath) => {
     try {
 
         //joining path with ejs file
-        var mailHTML;
+        let mailHTML;
         ejs.renderFile(path.join(__dirname, '../views/mailers', relativePath),
             data, (error, data) => {
                 if (error) {

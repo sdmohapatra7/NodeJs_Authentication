@@ -161,7 +161,7 @@ module.exports.setPassword = async (req, res) => {
 
     req.flash('Error', 'Link Expired!!');
     console.log('Error', error);
-    return res.redirect('/users/reset-password');
+    return res.redirect('/user/reset-password');
 
   }
 }
@@ -196,7 +196,7 @@ module.exports.updatePassword = async (req, res) => {
     } else {
 
       req.flash('error', 'Link expired !')
-      return res.redirect('/users/reset-password !');
+      return res.redirect('/user/reset-password !');
 
     }
 

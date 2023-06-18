@@ -1,12 +1,12 @@
 const nodeMailer = require('../config/nodemailer');
+const User = require('../models/user');
 
 exports.resetPassMail = (user) => {
 
   try {
-    // console.log('inside newComment mailer');
 
     //for sending ejs in mail
-    let htmlString = nodeMailer.renderTemplate({ user: user }, '/user/usermailer.ejs');
+    let htmlString = nodeMailer.renderTemplate({ user: user }, '/users/usermailer.ejs');
 
     let info = nodeMailer.transporter.sendMail({
       from: process.env.user_email,
@@ -15,17 +15,13 @@ exports.resetPassMail = (user) => {
       html: htmlString
     }, function (err, data) {
       if (err) {
-        console.log('Error', err)
-      } else {
-        console.log('Email Send', data);
+        console.log('Error', err);
+        return;
       }
-    });
-    if (!info) {
-      console.log('Error in sending mail !');
+      console.log('Message send :', data);
       return;
-    }
-    console.log('Message send :', info);
-    return
+    });
+    
   } catch (error) {
     console.log('Error', error)
   }
